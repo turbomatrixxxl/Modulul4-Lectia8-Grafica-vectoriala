@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- head -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Mai întâi normalizarea -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    />
+
+    <!-- Link cale relativa fisier css -->
+    <link rel="stylesheet" href="./styles/styles.css" />
+
+    <title>Modul 4-Lectia 8</title>
+  </head>
+
+  <!-- body -->
+  <body>
+    <!-- header -->
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#grafica">Grafica vectorială </a></li>
+          <li><a href="#elementele">Elementele SVG </a></li>
+          <li><a href="#fișierul">Fișierul SVG </a></li>
+          <li><a href="#utilizare">Utilizare </a></li>
+          <li><a href="#stilizarea">Stilizarea figurilor </a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- main -->
+    <main>
+      <h1>Modulul 4 - Lecția 8 - Grafica vectorială</h1>
+
+      <!-- Grafica vectorială -->
+      <section>
+        <h2 id="grafica">Grafica vectorială</h2>
+        <p>
+          <b>SVG (Scalable Vector Graphics)</b> – un tip de format grafic și
+          limbaj pentru descrierea imaginilor vectoriale. În interior, fișierul
+          nu este binar, ci text simplu (XML) care descrie obiectele, efectele
+          și comportamentul acestora. Grafica vectorială are o serie de
+          avantaje.
+        </p>
+        <ul>
+          <li>
+            <b>Scalarea</b> – spre deosebire de grafica bitmap, elementul SVG nu
+            își pierde din calitate atunci când este scalat.
+          </li>
+          <li>
+            <b>Dimensiunea fișierului</b> – imaginile vectoriale sunt mult mai
+            mici decât cele bitmap atunci dacă sunt folosite pentru iconițe sau
+            alt tip de grafică abstractă. În schimb, utilizarea vectorilor
+            pentru imagini fotorealiste are ca rezultat dimensiuni uriașe ale
+            fișierelor.
+          </li>
+          <li>
+            <b>Adaptare</b> – folosind CSS și JavaScript, puteți modifica
+            parametrii unei imagini vectoriale, cum ar fi culoarea sau
+            marginile.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Elementele SVG -->
+      <section>
+        <h2 id="elementele">Elementele SVG</h2>
+        <p>
+          Orice imagine vectorială e compusă dintr-un set de forme care sunt
+          reprezentate sub forma unor elemente SVG. Când un designer exportă o
+          iconiță dintr-un editor grafic, cum ar fi Adobe Illustrator sau
+          Inkscape, programul convertește imaginea într-un șablon și produce un
+          fișier SVG. Developerul folosește imaginea SVG gata făcută fără a se
+          gândi la conținutul acesteia, însă nu va fi de prisos o familiarizare
+          de bază cu elementele, așa că haideți să analizăm unele dintre ele.
+        </p>
+        <ul>
+          <!-- Elementul <svg> -->
+          <li>
+            <h3>Elementul (svg)</h3>
+            <p>
+              Acesta specifică pânza pentru desenarea unor forme. Haideți să
+              facem o pânză de 400x300 pixeli și să adăugăm un stil de tip
+              inline cu un outline pentru a desena bordurile.
+            </p>
+
+            <!-- Exemplu ok -->
+            <div>
+              <h4>Exemplu :</h4>
+              <p>index.html</p>
+              <svg width="400" height="300" style="outline: 2px dashed #2a2a2a">
+                <!-- Aici va fi marcajul formelor -->
+              </svg>
+
+              <!-- HTML -->
+              <h3>HTML</h3>
+              <p>
+                &lt;svg width="400" height="300" <br />style="outline: 2px
+                dashed #2a2a2a"&gt;<br />
+                <!-- Aici va fi marcajul formelor -->
+                &lt;/svg&gt;
+              </p>
+            </div>
+          </li>
+
+          <!-- Elementul <rect> -->
+          <li>
+            <h3>Elementul (rect)</h3>
+            <p>
+              Creează o suprafață dreptunghiulară. În continuare, vom desena un
+              dreptunghi de 250x150 pixeli, căruia îi vom adăuga următoarele
+              caracteristici.
+            </p>
+            <ul>
+              <li>Umplem suprafața cu culoare, folosind atributul fill.</li>
+              <li>
+                Setăm culoarea neagră pentru bordură și o lățime de 4px ,
+                folosind atributele stroke și stroke-width.
+              </li>
+              <li>
+                Setăm deplasarea la 20px pe verticală și pe orizontală în raport
+                cu colțul din stânga sus al pânzei cu atributele x și y.
+              </li>
+              <li>
+                Adăugăm rotunjirea colțurilor dreptunghiului cu atributele rx
+                (orizontală) și ry (verticală). Dacă se specifică o singură
+                valoare, cealaltă va fi identică.
+              </li>
+            </ul>
+            <p>index.html</p>
+            <svg width="400" height="300" style="outline: 1px solid black">
+              <rect
+                width="250"
+                height="150"
+                fill="tomato"
+                stroke="black"
+                stroke-width="4"
+                x="20"
+                y="20"
+                rx="40"
+              />
+            </svg>
+            <p>
+              (svg width="400" height="300" style="outline: 1px solid black")
+              (rect width="250" height="150" fill="tomato" stroke="black"
+              stroke-width="4" x="20" y="20" rx="40" /) (svg/)
+            </p>
+            <p></p>
+
+            <!-- Exemplu ok -->
+            <div>
+              <h4>Exemplu :</h4>
+              <p>
+                Haideți să desenăm un alt dreptunghi și să-l plasăm în partea
+                dreaptă jos a pânzei. Noua formă se va suprapune pe primul
+                dreptunghi, deoarece formele sunt aranjate pe straturi – ca-n
+                exemplul de mai jos, unde cel galben este suprapus peste cel
+                roșu.
+              </p>
+              <svg width="400" height="300" style="outline: 2px dashed #2a2a2a">
+                <rect
+                  width="250"
+                  height="150"
+                  fill="tomato"
+                  stroke="#2a2a2a"
+                  stroke-width="4"
+                  x="20"
+                  y="20"
+                  rx="40"
+                />
+                <rect
+                  width="250"
+                  height="150"
+                  fill="orange"
+                  stroke="#2a2a2a"
+                  stroke-width="4"
+                  x="120"
+                  y="120"
+                  rx="60"
+                  ry="30"
+                />
+              </svg>
+
+              <!-- HTML -->
+              <h3>HTML</h3>
+              <p>
+                (svg <br />
+                width="400" <br />
+                height="300" <br />
+                style="outline: 2px dashed #2a2a2a" <br />
+                ) <br />
+                (rect <br />
+                width="250" <br />
+                height="150" <br />
+                fill="tomato" <br />
+                stroke="#2a2a2a" <br />
+                stroke-width="4" <br />
+                x="20" <br />
+                y="20" <br />
+                rx="40" <br />
+                /) <br />
+                (rect <br />
+                width="250" <br />
+                height="150" <br />
+                fill="orange" <br />
+                stroke="#2a2a2a" <br />
+                stroke-width="4" <br />
+                x="120" <br />
+                y="120" <br />
+                rx="60" <br />
+                ry="30" <br />
+                /) <br />
+                (/svg)
+              </p>
+            </div>
+          </li>
+
+          <!-- Elementul <circle> -->
+          <li>
+            <h3>Elementul (circle)</h3>
+            <p>
+              Creează un cerc al cărui rază este dată de atributul r. Vom desena
+              o formă de 100x100 pixeli, căreia îi setăm o bordură și o umplem
+              cu culoare. Ca rezultat, vom obține un cerc centrat în colțul din
+              stânga sus și cea mai mare parte este ascunsă, deoarece se află în
+              spatele pânzei.
+            </p>
+
+            <!-- Exemplu ok -->
+            <div>
+              <h4>Exemplu :</h4>
+              <svg width="400" height="300" style="outline: 2px dashed #2a2a2a">
+                <circle
+                  r="100"
+                  fill="tomato"
+                  stroke="#2a2a2a"
+                  stroke-width="4"
+                />
+              </svg>
+              <svg width="400" height="300" style="outline: 2px dashed #2a2a2a">
+                <circle
+                  r="100"
+                  cx="200"
+                  cy="150"
+                  fill="tomato"
+                  stroke="#2a2a2a"
+                  stroke-width="4"
+                />
+              </svg>
+              <p>
+                Coordonatele centrului cercului de pe pânză sunt date de
+                atributele cx (center x) și cy (center y).
+              </p>
+
+              <!-- HTML -->
+              <h3>HTML</h3>
+              <p>
+                (svg width="400" height="300" style="outline: 2px dashed
+                #2a2a2a;") <br />
+                (circle r="100" <br />
+                fill="tomato" <br />
+                stroke="#2a2a2a" <br />
+                stroke-width="4" /) <br />
+                (/svg)
+              </p>
+              <p>
+                (svg width="400" height="300" style="outline: 2px dashed
+                #2a2a2a;") <br />
+                (circle r="100" <br />
+                cx="200" <br />
+                cy="150" <br />
+                fill="tomato" <br />
+                stroke="#2a2a2a" <br />
+                stroke-width="4" /) <br />
+                (/svg)
+              </p>
+            </div>
+          </li>
+
+          <!-- Elementul <ellipse> -->
+          <li>
+            <h3>Elementul (ellipse)</h3>
+            <p>
+              Acest element creează o elipsă. Raza orizontală și verticală sunt
+              date de atributele rx și ry. Atributele rămase sunt identice cu
+              elementul (circle). Haideți să desenăm o elipsă de 150x100 pixeli,
+              să-i dăm o bordură și să o umplem cu culoare.
+            </p>
+
+            <!-- Exemplu ok -->
+            <div>
+              <h4>Exemplu :</h4>
+              <svg width="400" height="300" style="outline: 2px dashed #2a2a2a">
+                <ellipse
+                  rx="150"
+                  ry="100"
+                  cx="200"
+                  cy="150"
+                  fill="tomato"
+                  stroke="#2a2a2a"
+                  stroke-width="4"
+                />
+              </svg>
+
+              <!-- HTML -->
+              <h3>HTML</h3>
+              <p>
+                (svg <br />
+                width="400" <br />
+                height="300" <br />
+                style="outline: 2px dashed #2a2a2a" <br />
+                ) <br />
+                (ellipse <br />
+                rx="150" <br />
+                ry="100" <br />
+                cx="200" <br />
+                cy="150" <br />
+                fill="tomato" <br />
+                stroke="#2a2a2a" <br />
+                stroke-width="4" <br />
+                /) <br />
+                (svg/)
+              </p>
+            </div>
+          </li>
+
+          <!-- Elementul <line> -->
+          <li>
+            <h3>Elementul (line)</h3>
+            <p>
+              Acesta creează o linie dreaptă. Atributele x1 și y1 indică punctul
+              de început al liniei, iar x2 și y2 indică punctul final al
+              acesteia. Vom desena pe pânză o iconiță de meniu hamburger din
+              trei linii orizontale paralele.
+            </p>
+
+            <!-- Exemplu ok -->
+            <div>
+              <h4>Exemplu :</h4>
+              <svg width="400" height="300" style="outline: 2px dashed #2a2a2a">
+                <line
+                  x1="20"
+                  y1="50"
+                  x2="380"
+                  y2="50"
+                  stroke="#2a2a2a"
+                  stroke-width="16"
+                />
+                <line
+                  x1="20"
+                  y1="80"
+                  x2="380"
+                  y2="80"
+                  stroke="#2a2a2a"
+                  stroke-width="16"
+                />
+                <line
+                  x1="20"
+                  y1="110"
+                  x2="380"
+                  y2="110"
+                  stroke="#2a2a2a"
+                  stroke-width="16"
+                />
+              </svg>
+
+              <!-- HTML -->
+              <h3>HTML</h3>
+              <p>
+                (svg <br />
+                width="400" <br />
+                height="300" <br />
+                style="outline: 2px dashed #2a2a2a" <br />
+                ) <br />
+                (line <br />
+                x1="20" <br />
+                y1="50" <br />
+                x2="380" <br />
+                y2="50" <br />
+                stroke="#2a2a2a" <br />
+                stroke-width="16" <br />
+                /) <br />
+                (line <br />
+                x1="20" <br />
+                y1="80" <br />
+                x2="380" <br />
+                y2="80" <br />
+                stroke="#2a2a2a" <br />
+                stroke-width="16" <br />
+                /) <br />
+                (line <br />
+                x1="20" <br />
+                y1="110" <br />
+                x2="380" <br />
+                y2="110" <br />
+                stroke="#2a2a2a" <br />
+                stroke-width="16" <br />
+                /) <br />
+                (/svg)
+              </p>
+            </div>
+          </li>
+
+          <!-- Elementul <polygon> -->
+          <li>
+            <h3>Elementul (polygon)</h3>
+            <p>
+              Descrie un poligon al cărui aspect este determinat de atributul
+              points – un set de puncte sub formă de coordonate de linii, care
+              sunt împărțite în grupuri.
+            </p>
+            <svg width="600" height="300" style="outline: 2px dashed #2a2a2a">
+              <polygon
+                points="20,20 20,200 200,200 200,20"
+                fill="orange"
+                stroke="#2a2a2a"
+                stroke-width="4"
+              />
+            </svg>
+            <p>
+              (svg width="600" height="300" style="outline: 2px dashed
+              <br />#2a2a2a") <br />
+              (polygon <br />
+              points="20,20 20,200 200,200 200,20" <br />
+              fill="orange" <br />
+              stroke="#2a2a2a" <br />
+              stroke-width="4" <br />
+              /) <br />
+              (/svg)
+            </p>
+            <p>
+              Prima cifră a grupului este coordonata x, a doua cifră după
+              virgulă este coordonata y. Primul grup de numere determină
+              coordonatele începutului primei linii, al doilea grup determină
+              sfârșitul primei linii și în același timp, începutul celei de-a
+              doua dintre acestea și așa mai departe.
+            </p>
+            <p>
+              Poligonul este o formă închisă, astfel încât ultima linie de
+              închidere este adăugată în mod automat, conectând sfârșitul
+              ultimei linii cu începutul primei linii al formei.
+            </p>
+
+            <!-- Exemplu ok -->
+            <div>
+              <h4>Exemplu :</h4>
+              <svg width="600" height="300" style="outline: 2px dashed #2a2a2a">
+                <!-- Square -->
+                <polygon
+                  points="20,20 20,200 200,200 200,20"
+                  fill="orange"
+                  stroke="#2a2a2a"
+                  stroke-width="4"
+                />
+
+                <!-- Triangle -->
+                <polygon
+                  points="250,20 250,200 400,200"
+                  fill="skyblue"
+                  stroke="#2a2a2a"
+                  stroke-width="4"
+                />
+
+                <!-- Parallelogram -->
+                <polygon
+                  points="430,20 430,200 550,250 550, 70"
+                  fill="palevioletred"
+                  stroke="#2a2a2a"
+                  stroke-width="4"
+                />
+              </svg>
+
+              <!-- HTML -->
+              <h3>HTML</h3>
+              <p>
+                (svg <br />
+                width="600" <br />
+                height="300" <br />
+                style="outline: 2px dashed #2a2a2a" <br />
+                ) <br />
+                (!-- Square --) <br />
+                (polygon <br />
+                points="20,20 20,200 200,200 200,20" <br />
+                fill="orange" <br />
+                stroke="#2a2a2a" <br />
+                stroke-width="4" <br />
+                /) <br />
+                <br />
+                (!-- Triangle --) <br />
+                (polygon <br />
+                points="250,20 250,200 400,200" <br />
+                fill="skyblue" <br />
+                stroke="#2a2a2a" <br />
+                stroke-width="4" <br />
+                /) <br />
+                <br />
+                (!-- Parallelogram --) <br />
+                (polygon <br />
+                points="430,20 430,200 550,250 550, 70" <br />
+                fill="palevioletred" <br />
+                stroke="#2a2a2a" <br />
+                stroke-width="4" <br />
+                /) <br />
+                (/svg)
+              </p>
+            </div>
+          </li>
+
+          <!-- Elementul <path> -->
+          <li>
+            <h3>Elementul (path)</h3>
+            <p>
+              Este un element universal pentru reprezentarea figurilor, oricât
+              de complexe ar fi. Toate iconițele SVG exportate de designer sunt
+              descrise de acest element. Atributul d conține un set de
+              coordonate și curbe care le conectează și care definesc direcția
+              liniilor. Nu este nevoie să editați manual elementul path.
+              Iconițele sunt desenate în editori speciali care, atunci când sunt
+              exportate, completează elementul path și alte elemente și atribute
+              ale acestora.
+            </p>
+
+            <!-- Exemplu ok -->
+            <div>
+              <h4>Exemplu :</h4>
+              <svg
+                viewBox="0 -10 511.991 511"
+                xmlns="http://www.w3.org/2000/svg"
+                width="300"
+                height="300"
+                style="outline: 2px dashed #2a2a2a"
+              >
+                <path
+                  d="M510.652 185.883a27.177 27.177 0 00-23.402-18.688l-147.797-13.418-58.41-136.75C276.73 6.98 266.918.497 255.996.497s-20.738 6.483-25.023 16.53l-58.41 136.75-147.82 13.418c-10.837 1-20.013 8.34-23.403 18.688a27.25 27.25 0 007.937 28.926L121 312.773 88.059 457.86c-2.41 10.668 1.73 21.7 10.582 28.098a27.087 27.087 0 0015.957 5.184 27.14 27.14 0 0013.953-3.86l127.445-76.203 127.422 76.203a27.197 27.197 0 0029.934-1.324c8.851-6.398 12.992-17.43 10.582-28.098l-32.942-145.086 111.723-97.964a27.246 27.246 0 007.937-28.926zM258.45 409.605"
+                  fill="#2a2a2a"
+                />
+              </svg>
+
+              <!-- HTML -->
+              <h3>HTML</h3>
+              <p>
+                (svg viewBox="0 -10 511.991 511" <br />
+                xmlns="http://www.w3.org/2000/svg" <br />
+                width="300" <br />
+                height="300" <br />
+                style="outline: 2px dashed #2a2a2a" <br />
+                ) <br />
+                (path <br />
+                d="M510.652 185.883a27.177 27.177 0 00-23.402-18.
+                <br />688l-147.797-13.418-58.41-136.75C276.73 6.98 266.
+                <br />918.497 255.996.497s-20.738 6.483-25.023 16.
+                <br />53l-58.41 136.75-147.82 13.418c-10.837 1-20.013 8.
+                <br />34-23.403 18.688a27.25 27.25 0 007.937 28.926L121
+                <br />312.773 88.059 457.86c-2.41 10.668 1.73 21.7 10.582
+                <br />28.098a27.087 27.087 0 0015.957 5.184 27.14 27.14 0
+                <br />0013.953-3.86l127.445-76.203 127.422 76.203a27.197
+                <br />27.197 0 0029.934-1.324c8.851-6.398 12.992-17.43 10.
+                <br />582-28.098l-32.942-145.086 111.723-97.964a27.246 27.
+                <br />246 0 007.937-28.926zM258.45 409.605" <br />
+                fill="#2a2a2a" <br />
+                /) <br />
+                (/svg)
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Fișierul SVG -->
+      <section>
+        <h2 id="fișierul">Fișierul SVG</h2>
+        <p>
+          Grafica vectorială este stocată în fișiere cu extensia .svg. Acestea
+          sunt fișiere "text simplu" care conțin la nivelul superior tag-ul
+          (svg) cu un set de atribute de serviciu care indică în ce versiune a
+          limbajului de marcare și în funcție de ce versiune a specificației SVG
+          a fost scris fișierul. Dintre toate atributele de serviciu, doar
+          atributul xmlns este obligatoriu, celelalte sunt de obicei omise.
+        </p>
+        <svg
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:ev="http://www.w3.org/2001/xml-events"
+        >
+          <circle r="75" cx="50%" cy="50%" fill="tomato" />
+        </svg>
+        <p>
+          (svg <br />
+          version="1.1" <br />
+          xmlns="http://www.w3.org/2000/svg" <br />
+          xmlns:xlink="http://www.w3.org/1999/xlink" <br />
+          xmlns:ev="http://www.w3.org/2001/xml-events" <br />
+          ) <br />
+          (circle r="75" cx="50%" cy="50%" fill="tomato" /) <br />
+          (/svg)
+        </p>
+        <p>
+          Dacă salvați acest cod într-un fișier extern, cum ar fi icon.svg, și
+          îl adăugați la o pagină web folosind tag-ul <img />, browserul va
+          desena o pânză de 300x150 pixeli cu un cerc în centru.
+        </p>
+        <p>INTERESANT</p>
+        <p>
+          Dacă nu setați în mod explicit dimensiunea, browserul va seta
+          elementului o valoare de 300x150 pixeli în mod implicit. Orice nu se
+          potrivește va fi tăiat.
+        </p>
+
+        <ul>
+          <!-- SVG-viewport -->
+          <li>
+            <h3>SVG-viewport</h3>
+            <p>
+              Conținutul unui document SVG este desenat pe o pânză infinită și
+              poate fi atât de mare cât doriți, dar partea vizibilă a pânzei
+              corespunde dimensiunilor elementului (svg). Atributele width și
+              height stabilesc dimensiunea ferestrei de vizualizare (viewport).
+              Colțul din stânga sus al ferestrei de vizualizare este originea,
+              unde x = 0 și y = 0. Valoarea implicită este reprezentată de
+              pixeli, deci specificarea px este inutilă.
+            </p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="400"
+              height="200"
+              style="outline: 2px dashed #2a2a2a"
+            >
+              <circle r="75" cx="50%" cy="50%" fill="tomato" />
+            </svg>
+            <p>
+              (svg <br />
+              xmlns="http://www.w3.org/2000/svg" <br />
+              width="400" <br />
+              height="200" <br />
+              style="outline: 2px dashed #2a2a2a" <br />
+              ) <br />
+              (circle r="75" cx="50%" cy="50%" fill="tomato" /) <br />
+              (/svg)
+            </p>
+          </li>
+
+          <!-- SVG-viewBox -->
+          <li>
+            <h3>SVG-viewBox</h3>
+            <p>
+              Printr-o simplă traducere a "view box", înțelegem că semnifică
+              literalmente o "fereastră de vizualizare". Adică, aceasta este o
+              "fereastră” prin care puteți vizualiza o parte a fișierului SVG.
+              Este ca o fereastră a unui avion prin care se vedea lumea din jur,
+              dar viewBox, de asemenea, poate scala imaginea (mărește sau
+              micșorează) ca un telescop.
+            </p>
+            <p>
+              Atributul viewBox specifică ce parte a imaginii va fi afișată și
+              la ce scară.
+            </p>
+            <p>viewBox="x y width height"</p>
+            <p>
+              Valorile x și y controlează deplasarea față de coordonatele de
+              început ale ferestrei de vizualizare (viewbox) și permit afișarea
+              doar a unei părți a imaginii. Valorile width și height controlează
+              scalarea.
+            </p>
+            <p>
+              Dacă raportul atributelor width și height față de omologii lor,
+              viewBox, este de 1:1, imaginea va fi redată la dimensiunea
+              inițială.
+            </p>
+            <p>
+              <svg width="400" height="200" viewBox="0 0 400 200">
+                <circle r="75" cx="50%" cy="50%" fill="tomato" />
+              </svg>
+            </p>
+            <p>
+              (svg width="400" height="200" viewBox="0 0 400 200") <br />
+              (circle r="75" cx="50%" cy="50%" fill="tomato" /) <br />
+              (/svg)
+            </p>
+            <p>
+              Cu un raport de 2:1, imaginea originală va fi scalată exact de
+              două ori, dar dimensiunea elementului va rămâne aceeași – 400x200.
+            </p>
+            <p>
+              <svg width="400" height="200" viewBox="0 0 200 100">
+                <circle r="75" cx="50%" cy="50%" fill="tomato" />
+              </svg>
+            </p>
+            <p>
+              (svg width="400" height="200" viewBox="0 0 200 100") <br />
+              (circle r="75" cx="50%" cy="50%" fill="tomato" /) <br />
+              (/svg)
+            </p>
+            <p>
+              Cu un raport de 1:2, imaginea originală va fi redusă exact de două
+              ori, dar dimensiunea elementului va rămâne aceeași – 400x200.
+            </p>
+            <p>
+              <svg width="400" height="200" viewBox="0 0 800 400">
+                <circle r="75" cx="50%" cy="50%" fill="tomato" />
+              </svg>
+            </p>
+            <p>
+              (svg width="400" height="200" viewBox="0 0 800 400") <br />
+              (circle r="75" cx="50%" cy="50%" fill="tomato" /) <br />
+              (/svg)
+            </p>
+            <p>ATENȚIE</p>
+            <p>
+              Adică, viewBox este o "fereastră" prin care utilizatorul se uită
+              la fișierul SVG. Aceasta poate fi mutată în orice loc din fișierul
+              SVG, iar utilizatorul va vedea fragmentul care se află direct sub
+              viewBox, în funcție de scara selectată.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Utilizare -->
+      <section>
+        <h2 id="utilizare">Utilizare</h2>
+        <p>
+          Există mai multe moduri de a folosi grafica vectorială, fiecare cu
+          avantajele și dezavantajele sale.
+        </p>
+        <ul>
+          <!-- În elementul <img> -->
+          <li>
+            <h3>În elementul (img)</h3>
+            <p>
+              Această abordare nu este diferită de utilizarea imaginilor bitmap,
+              trebuie doar să specificați calea către imagine.
+            </p>
+            <p>
+              Haideți să creăm trei elemente <img /> de dimensiuni diferite și
+              să folosim aceeași iconiță SVG. Nu există pixelare, chiar dacă
+              pagina web este scalată la maxim, deoarece în elementul
+              <img /> vectorul, de asemenea, este desenat de browser după
+              formulele date în interiorul fișierului SVG.
+            </p>
+
+            <!-- Exemplu -->
+            <div>
+              <h4>Exemplu :</h4>
+              <div class="body">
+                <img
+                  src="https://res.cloudinary.com/goit-academy/image/upload/v1614773221/codepen/cat_segyum.svg"
+                  alt="A cat"
+                  width="60"
+                />
+                <img
+                  src="https://res.cloudinary.com/goit-academy/image/upload/v1614773221/codepen/cat_segyum.svg"
+                  alt="A cat"
+                  width="120"
+                />
+                <img
+                  src="https://res.cloudinary.com/goit-academy/image/upload/v1614773221/codepen/cat_segyum.svg"
+                  alt="A cat"
+                  width="180"
+                />
+              </div>
+
+              <div class="codes">
+                <!-- HTML -->
+                <div class="html">
+                  <h5>HTML</h5>
+                  <p>
+                    (div class="body") <br />
+                    (img <br />
+                    src="https://res.cloudinary.com/goit-academy/image/upload/
+                    <br />v1614773221/codepen/cat_segyum.svg" <br />
+                    alt="A cat" <br />
+                    width="60" <br />
+                    /) <br />
+                    (img <br />
+                    src="https://res.cloudinary.com/goit-academy/image/upload/
+                    <br />v1614773221/codepen/cat_segyum.svg" <br />
+                    alt="A cat" <br />
+                    width="120" <br />
+                    /) <br />
+                    (img <br />
+                    src="https://res.cloudinary.com/goit-academy/image/upload/
+                    <br />v1614773221/codepen/cat_segyum.svg" <br />
+                    alt="A cat" <br />
+                    width="180" <br />
+                    /) <br />
+                    (/div)
+                  </p>
+                </div>
+
+                <!-- CSS -->
+                <div class="css">
+                  <h5>CSS</h5>
+                  <p>
+                    .body { <br />
+                    margin: 0; <br />
+                    min-height: 100vh; <br />
+                    display: flex; <br />
+                    gap: 10px; <br />
+                    flex-direction: column; <br />
+                    align-items: center; <br />
+                    justify-content: center; <br />
+                    background-color: #f9f9fd; <br />
+                    } <br />
+                    <br />
+                    img { <br />
+                    display: block; <br />
+                    max-width: 100%; <br />
+                    margin: 0 auto; <br />
+                    border: 2px dashed #2a2a2a; <br />
+                    border-radius: 8px; <br />
+                    }
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Ca element de fundal -->
+          <li>
+            <h3>Ca element de fundal</h3>
+            <p>
+              O imagine vectorială poate fi folosită ca fundal al unui element
+              în proprietatea background-image. Puteți face orice manipulări cu
+              fundalul vectorial, precum și cu grafica bitpam.
+            </p>
+
+            <!-- Exemplu -->
+            <div>
+              <h4>Exemplu :</h4>
+              <div class="box body"></div>
+
+              <div class="codes">
+                <!-- HTML -->
+                <div class="html">
+                  <h5>HTML</h5>
+                  <p>(div class="box body")(/div)</p>
+                </div>
+
+                <!-- CSS -->
+                <div class="css">
+                  <h5>CSS</h5>
+                  <p>
+                    .body { <br />
+                    margin: 0; <br />
+                    min-height: 100vh; <br />
+                    display: flex; <br />
+                    flex-direction: column; <br />
+                    align-items: center; <br />
+                    justify-content: center; <br />
+                    background-color: #f9f9fd; <br />
+                    } <br />
+                    <br />
+                    .box { <br />
+                    width: 240px; <br />
+                    height: 240px; <br />
+                    border: 2px dashed #2a2a2a; <br />
+                    border-radius: 8px; <br />
+                    background-image:
+                    url("https://res.cloudinary.com/goit-academy/image/
+                    <br />upload/v1614773221/codepen/cat_segyum.svg"); <br />
+                    background-repeat: no-repeat; <br />
+                    background-size: contain; <br />
+                    }
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- SVG încorporat -->
+          <li>
+            <h3>SVG încorporat</h3>
+            <p>
+              Cele două metode anterioare sunt potrivite pentru grafica statică,
+              cum ar fi fundalurile abstracte sau iconițele care nu necesită un
+              efect de hover sau de focalizare. Dar acestea au un dezavantaj
+              semnificativ – nu există nicio modalitate de a schimba dinamic
+              culoarea sau alte caracteristici ale unei imagini vectoriale prin
+              CSS.
+            </p>
+            <p>
+              O imagine SVG poate fi adăugată în întregime în HTML, aceasta se
+              numește un SVG de tip inline (inline svg). Adică, deschideți
+              fișierul SVG într-un editor de text, copiați conținutul și
+              introduceți-l într-un document HTML. Deci, astfel vă veți putea
+              referi la structura sa internă.
+            </p>
+            <p>
+              În exemplul de mai jos adăugăm clasa .icon la elementul (svg),
+              setăm negru pentru culoarea de bază de umplere (proprietatea fill)
+              și o schimbăm în portocaliu la trecerea cursorului peste ea.
+            </p>
+
+            <!-- Exemplu -->
+            <div>
+              <h4>Exemplu :</h4>
+              <div class="body">
+                <svg
+                  viewBox="0 0 256 256"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon"
+                >
+                  <path
+                    d="M164.216 139.486c-10.518 3.328-24.077 5.793-41.235 5.793-17.111 0-30.642-2.451-41.149-5.765-38.399 42.885.824 85.034 13.139 96.461 1.413 1.311.985 3.529-.81 4.323-4.477 1.981-6.036 5.131-6.453 7.858-.432 2.832 1.979 5.344 5.02 5.344h18.056c7.606 0 11.035-4.702 11.955-11.653h.397c.92 6.951 4.349 11.653 11.955 11.653h18.252c3.041 0 5.452-2.513 5.02-5.344-.416-2.727-1.975-5.877-6.452-7.858-1.796-.794-2.223-3.012-.81-4.323 12.318-11.43 51.556-53.594 13.115-96.489z"
+                    fill="#f9bd55"
+                  />
+                  <path
+                    d="M123.968 169.5h-2.059c-7.9 0-14.304 6.404-14.304 14.304v.226s14.243 30.517 15.333 51.098c1.09-20.582 15.333-51.098 15.333-51.098.126-7.987-6.314-14.53-14.303-14.53zM122.938 235.128a40.89 40.89 0 000 4.659 40.89 40.89 0 000-4.659z"
+                    fill="#f4dbce"
+                  />
+                  <path
+                    d="M192.285 93.744c6.845 0 14.545-6.329 14.545-6.329-10.227-1.706-12.33-11.645-17.807-24.41 22.519-11.25 16.81-45.832 13.712-58.937-.401-1.698-2.59-2.13-3.637-.735-2.699 3.594-8.444 8.53-20.429 11.296-11.576 2.671-18.086 8.631-21.552 13.279-16.285-6.556-34.135-5.59-34.135-5.59s-17.851-.966-34.135 5.59C85.379 23.26 78.869 17.3 67.293 14.629c-11.985-2.766-17.73-7.702-20.429-11.296-1.048-1.395-3.236-.962-3.637.735-3.098 13.104-8.807 47.687 13.712 58.937-5.477 12.764-7.58 22.703-17.807 24.41 0 0 7.7 6.329 14.545 6.329 0 0-3.422 8.137-12.834 9.945 0 0 5.134 9.041 21.39 9.041 0 0-5.134 7.233-11.123 9.041 0 0 18.823 23.507 71.871 23.507s71.871-23.507 71.871-23.507c-5.989-1.808-11.123-9.041-11.123-9.041 16.256 0 21.39-9.041 21.39-9.041-9.412-1.808-12.834-9.945-12.834-9.945z"
+                    fill="#f9bd55"
+                  />
+                  <path
+                    d="M123.497 101.516s-.031 10.225-11.853 11.085c1.051 10.022 5.954 17.609 11.853 17.609s10.802-7.587 11.853-17.609c-11.822-.86-11.853-11.085-11.853-11.085z"
+                    fill="#52565b"
+                  />
+                  <path
+                    d="M115.603 124.919c2.115 3.291 4.872 5.292 7.894 5.292 3.023 0 5.779-2.001 7.894-5.292-2.114-3.296-4.87-5.299-7.894-5.299-3.024-.001-5.78 2.003-7.894 5.299z"
+                    fill="#fd605b"
+                  />
+                </svg>
+              </div>
+
+              <div class="codes">
+                <!-- HTML -->
+                <div class="html">
+                  <h5>HTML</h5>
+                  <p>
+                    (div class="body") <br />
+                    (svg viewBox="0 0 256 256"
+                    xmlns="http://www.w3.org/2000/svg" class="icon" )
+                    <br />
+                    (path d="M164.216 139.486c-10.518 3.328-24.077 5.793-41.235
+                    <br />
+                    5.793-17.111 0-30.642-2.451-41.149-5.765-38.399 42.885.824
+                    <br />
+                    85.034 13.139 96.461 1.413 1.311.985 3.529-.81 4.323-4.477
+                    <br />
+                    1.981-6.036 5.131-6.453 7.858-.432 2.832 1.979 5.344 5.02
+                    <br />
+                    5.344h18.056c7.606 0 11.035-4.702 11.955-11.653h.397c.92
+                    <br />
+                    6.951 4.349 11.653 11.955 11.653h18.252c3.041 0 5.452-2.513
+                    <br />
+                    5.02-5.344-.416-2.727-1.975-5.877-6.452-7.858-1.796-.794-2.223-3.012-.81-4.323
+                    <br />
+                    12.318-11.43 51.556-53.594 13.115-96.489z" fill="#f9bd55" /)
+                    <br />
+                    (path d="M123.968 169.5h-2.059c-7.9 0-14.304 6.404-14.304
+                    <br />
+                    14.304v.226s14.243 30.517 15.333 51.098c1.09-20.582
+                    15.333-51.098 <br />
+                    15.333-51.098.126-7.987-6.314-14.53-14.303-14.53zM122.938
+                    <br />
+                    235.128a40.89 40.89 0 000 4.659 40.89 40.89 0 000-4.659z"
+                    <br />
+                    fill="#f4dbce" /) (path d="M192.285 93.744c6.845 0 <br />
+                    14.545-6.329 <br />
+                    14.545-6.329-10.227-1.706-12.33-11.645-17.807-24.41 <br />
+                    22.519-11.25 16.81-45.832 <br />
+                    13.712-58.937-.401-1.698-2.59-2.13-3.637-.735-2.699 <br />
+                    3.594-8.444 8.53-20.429 11.296-11.576 2.671-18.086 <br />
+                    8.631-21.552 <br />
+                    13.279-16.285-6.556-34.135-5.59-34.135-5.59s-17.851-.
+                    <br />966-34.135 <br />
+                    5.59C85.379 23.26 78.869 17.3 67.293 <br />
+                    14.629c-11.985-2.766-17.73-7.702-20.429-11.296-1.048-1.
+                    <br />395-3.236-.962-3.637.735-3.098 <br />
+                    13.104-8.807 47.687 13.712 58.937-5.477 12.764-7.58 <br />
+                    22.703-17.807 24.41 0 0 7.7 6.329 14.545 6.329 0 0-3.
+                    <br />422 <br />
+                    8.137-12.834 9.945 0 0 5.134 9.041 21.39 9.041 0 0-5.134
+                    <br />
+                    7.233-11.123 9.041 0 0 18.823 23.507 71.871 <br />
+                    23.507s71.871-23.507 <br />
+                    71.871-23.507c-5.989-1.808-11.123-9.041-11.123-9.041 16.
+                    <br />256 <br />
+                    0 21.39-9.041 <br />
+                    21.39-9.041-9.412-1.808-12.834-9.945-12.834-9.945z" <br />
+                    fill="#f9bd55" /) (path d="M123.497 101.516s-.031 <br />
+                    10.225-11.853 11.085c1.051 10.022 5.954 17.609 11.853 <br />
+                    17.609s10.802-7.587 <br />
+                    11.853-17.609c-11.822-.86-11.853-11.085-11.853-11.085z"
+                    <br />
+                    fill="#52565b" /) (path d="M115.603 124.919c2.115 3.291
+                    <br />
+                    4.872 5.292 7.894 5.292 3.023 0 5.779-2.001 <br />
+                    7.894-5.292-2.114-3.296-4.87-5.299-7.894-5.299-3.024-.
+                    <br />001-5.78 <br />
+                    2.003-7.894 5.299z" fill="#fd605b" /) <br />
+                    (/svg) <br />
+                    (/div) <br />
+                  </p>
+                </div>
+
+                <!-- CSS -->
+                <div class="css">
+                  <h5>CSS</h5>
+                  <p>
+                    .body { <br />
+                    margin: 0; <br />
+                    min-height: 100vh; <br />
+                    display: flex; <br />
+                    flex-direction: column; <br />
+                    align-items: center; <br />
+                    justify-content: center; <br />
+                    background-color: #f9f9fd; <br />
+                    } <br />.icon { <br />display: inline-flex; <br />
+                    width: 120px; <br />
+                    height: 120px; <br />
+                    border: 2px dashed #2a2a2a; <br />
+                    border-radius: 8px; <br />
+                    fill: #2a2a2a; <br />
+                    } <br />
+                    .icon:hover { <br />
+                    fill: #bf360c; <br />
+                    }
+                  </p>
+                </div>
+              </div>
+            </div>
+            <p>Această abordare are o serie de dezavantaje semnificative.</p>
+            <ul>
+              <li>Codul SVG încorporat mărește dimensiunea fișierului HTML.</li>
+              <li>
+                Nu este posibilă reutilizarea aceleiași imagini fără a duplica
+                codul.
+              </li>
+              <li>
+                Întreținerea și editarea de tip inline SVG necesită o muncă
+                intensivă.
+              </li>
+              <li>
+                Spre deosebire de fișierele SVG externe, browserul nu poate
+                stoca în cache formele de tip inline.
+              </li>
+            </ul>
+          </li>
+
+          <!-- Sprite SVG -->
+          <li>
+            <h3>Sprite SVG</h3>
+            <p>
+              Sprite SVG este o tehnică modernă care este folosită în cele mai
+              multe cazuri.
+            </p>
+            <ul>
+              <li>Un fișier pentru toate iconițele SVG a unui site.</li>
+              <li>
+                Fișierul sprite este stocat în cache de browser și nu va fi
+                încărcat în cazul vizitelor repetate.
+              </li>
+              <li>
+                Prin CSS puteți schimba culoarea și alte caracteristici ale
+                iconițelor dintr-un sprite.
+              </li>
+            </ul>
+
+            <p>ATENȚIE</p>
+            <p>
+              Crearea unui Sprite SVG folosind serviciul
+              <a href="https://icomoon.io/app/#/select">icomoon.io</a> , este
+              analizat în lecția video.
+            </p>
+            <p>
+              Un fișier SVG este doar un fișier text care, spre deosebire de
+              grafica bitmap, descrie formele pe care browserul le va desena. În
+              interiorul unui fișier, puteți descrie o mulțime de grupuri
+              diferite de forme folosind elementul (symbol), după care, dând
+              fiecărui simbol un id unic, faceți o referință la oricare dintre
+              ele din documentul HTML.
+            </p>
+            <p>index.html</p>
+            <p>
+              (svg) <br />
+              (use <br />
+              href="./cale-către-svg-sprite/nume-sprite.svg#identificator-simbol"
+              <br />
+              )(/use) <br />
+              (/svg)
+            </p>
+            <p>
+              Pentru a utiliza o iconiță dintr-un sprite, într-un document HTML,
+              trebuie să adăugați marcajul elementului (svg) și al elementului
+              imbricat, (use), cu atributul `href, care specifică calea către
+              iconiță. Calea este setată ca pentru un fișier obișnuit, dar la
+              sfârșit, are o ancoră care conține identificatorul simbolului în
+              sprite.
+            </p>
+            <p>
+              Să analizăm un exemplu. Pentru claritate, am introdus întregul
+              sprite SVG în fișier (și dându-i un ID, l-am ascuns) pentru a vă
+              economisi timpul de căutare a codului SVG (pentru că este
+              interesant cum funcționează în interior).
+            </p>
+
+            <!-- Exemplu trebuie completat...!!! -->
+            <div>
+              <h4>Exemplu :</h4>
+              <div class="body">
+                <!-- This is an SVG sprite that we added in its entirety and hidden visually. -->
+                <svg
+                  aria-hidden="true"
+                  style="position: absolute; width: 0; height: 0"
+                  xmlns="http://www.w3.org/2000/svg"
+                  overflow="hidden"
+                >
+                  <defs>
+                    <!-- Trash can icon -->
+                    <symbol id="delete" viewBox="0 0 32 32">
+                      <path
+                        d="M8 25.333C8 26.8 9.2 28 10.667 28h10.667c1.467 0 2.667-1.2 2.667-2.667v-16h-16v16zm17.333-20h-4.667L19.333 4h-6.667l-1.333 1.333H6.666V8h18.667V5.333z"
+                      />
+                    </symbol>
+                    <!-- Camera icon -->
+                    <symbol id="camera" viewBox="0 0 32 32">
+                      <path
+                        d="M20.267 16a4.267 4.267 0 11-8.534 0 4.267 4.267 0 018.534 0z"
+                      />
+                      <path
+                        d="M12 2.667L9.56 5.334H5.333a2.675 2.675 0 00-2.667 2.667v16c0 1.467 1.2 2.667 2.667 2.667h21.333c1.467 0 2.667-1.2 2.667-2.667v-16c0-1.467-1.2-2.667-2.667-2.667h-4.227l-2.44-2.667h-8zm4 20c-3.68 0-6.667-2.987-6.667-6.667S12.32 9.333 16 9.333 22.667 12.32 22.667 16 19.68 22.667 16 22.667z"
+                      />
+                    </symbol>
+                    <!-- Portfolio icon -->
+                    <symbol id="work" viewBox="0 0 32 32">
+                      <path
+                        d="M26.667 8h-5.333V5.333a2.658 2.658 0 00-2.667-2.667h-5.333a2.658 2.658 0 00-2.667 2.667V8H5.334a2.646 2.646 0 00-2.653 2.667l-.013 14.667a2.658 2.658 0 002.667 2.667h21.333a2.658 2.658 0 002.667-2.667V10.667A2.658 2.658 0 0026.668 8zm-8 0h-5.333V5.333h5.333V8z"
+                      />
+                    </symbol>
+                  </defs>
+                </svg>
+
+                <ul class="icon-list">
+                  <li>
+                    <svg class="icon" width="80" height="80">
+                      <use href="#delete"></use>
+                    </svg>
+                  </li>
+                  <li>
+                    <svg class="icon" width="80" height="80">
+                      <use href="#camera"></use>
+                    </svg>
+                  </li>
+                  <li>
+                    <svg class="icon" width="80" height="80">
+                      <use href="#work"></use>
+                    </svg>
+                  </li>
+                </ul>
+              </div>
+              <div class="codes">
+                <!-- HTML -->
+                <div class="html">
+                  <h5>HTML</h5>
+                  <p></p>
+                </div>
+
+                <!-- CSS -->
+                <div class="css">
+                  <h5>CSS</h5>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+            <p>
+              Deci, în interiorul sprite-ului SVG există un set de elemente
+              (svg) și (symbol) care descriu întregul sprite SVG și fiecare
+              formă separat. Fiecare element (symbol) primește un identificator
+              unic. În HTML, folosim atributul href și ne referim la simbolul
+              SVG prin simbolul hash (#) și identificatorul acestuia.
+            </p>
+            <p>ATENȚIE</p>
+            <p>
+              În exemplu, întregul sprite SVG se află în marcajul HTML, deci nu
+              există un nume de fișier SVG înainte de hash. Dacă sprite-ul SVG
+              ar fi într-un fișier separat, ar fi numit după nume, apoi # și id
+              al simbolului.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Stilizarea figurilor -->
+      <section>
+        <h2 id="stilizarea">Stilizarea figurilor</h2>
+        <p>
+          CSS vă permite să schimbați în mod dinamic unele dintre
+          caracteristicile unei imagini vectoriale sau iconițe de tip inline
+          dintr-un sprite SVG, cum ar fi tipul de umplere, culoare sau contur.
+          Valorile pot fi setate atât prin atributele formelor SVG, cât și prin
+          proprietățile CSS cu același nume. În practică, pentru stilizarea
+          figurilor nu sunt folosite atributele, ci codul CSS, deoarece este mai
+          ușor de întreținut și schimbat.
+        </p>
+        <ul>
+          <!-- Proprietatea fill -->
+          <li>
+            <h3>Proprietatea fill</h3>
+            <p></p>
+          </li>
+
+          <!-- Proprietatea fill-opacity -->
+          <li>
+            <h3>Proprietatea fill-opacity</h3>
+            <p></p>
+          </li>
+
+          <!-- Proprietatea stroke -->
+          <li>
+            <h3>Proprietatea stroke</h3>
+            <p></p>
+          </li>
+
+          <!-- Proprietatea stroke-width -->
+          <li>
+            <h3>Proprietatea stroke-width</h3>
+            <p></p>
+          </li>
+
+          <!-- Proprietatea stroke-opacity -->
+          <li>
+            <h3>Proprietatea stroke-opacity</h3>
+            <p></p>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin-left: 30px;
+}
+
+.codes {
+  display: flex;
+  gap: 40px;
+}
+
+/* Utilizare grafica in elementul img */
+.body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9fd;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+  border: 2px dashed #2a2a2a;
+  border-radius: 8px;
+}
+
+/* Utilizare ca fundal */
+.box {
+  width: 240px;
+  height: 240px;
+  border: 2px dashed #2a2a2a;
+  border-radius: 8px;
+  background-image: url("https://res.cloudinary.com/goit-academy/image/upload/v1614773221/codepen/cat_segyum.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Utilizare ca SVG incorporat */
+.icon {
+  display: inline-flex;
+  width: 120px;
+  height: 120px;
+  border: 2px dashed #2a2a2a;
+  border-radius: 8px;
+  fill: #2a2a2a;
+}
+
+.icon:hover {
+  fill: #bf360c;
+}
+
+/* Sprite SVG */
+.icon-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.icon {
+  border: 2px dashed #2a2a2a;
+  border-radius: 8px;
+  fill: #2a2a2a;
+}
+
+.icon:hover {
+  fill: #03a9f4;
+}
