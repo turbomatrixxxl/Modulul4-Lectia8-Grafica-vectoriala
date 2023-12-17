@@ -903,7 +903,7 @@
                 <svg
                   viewBox="0 0 256 256"
                   xmlns="http://www.w3.org/2000/svg"
-                  class="icon"
+                  class="inc-icon"
                 >
                   <path
                     d="M164.216 139.486c-10.518 3.328-24.077 5.793-41.235 5.793-17.111 0-30.642-2.451-41.149-5.765-38.399 42.885.824 85.034 13.139 96.461 1.413 1.311.985 3.529-.81 4.323-4.477 1.981-6.036 5.131-6.453 7.858-.432 2.832 1.979 5.344 5.02 5.344h18.056c7.606 0 11.035-4.702 11.955-11.653h.397c.92 6.951 4.349 11.653 11.955 11.653h18.252c3.041 0 5.452-2.513 5.02-5.344-.416-2.727-1.975-5.877-6.452-7.858-1.796-.794-2.223-3.012-.81-4.323 12.318-11.43 51.556-53.594 13.115-96.489z"
@@ -1026,6 +1026,7 @@
                 </div>
               </div>
             </div>
+            <p><b>!!! Nu merge exemplul..!!!</b></p>
             <p>Această abordare are o serie de dezavantaje semnificative.</p>
             <ul>
               <li>Codul SVG încorporat mărește dimensiunea fișierului HTML.</li>
@@ -1101,7 +1102,7 @@
               interesant cum funcționează în interior).
             </p>
 
-            <!-- Exemplu trebuie completat...!!! -->
+            <!-- Exemplu -->
             <div>
               <h4>Exemplu :</h4>
               <div class="body">
@@ -1119,38 +1120,13 @@
                         d="M8 25.333C8 26.8 9.2 28 10.667 28h10.667c1.467 0 2.667-1.2 2.667-2.667v-16h-16v16zm17.333-20h-4.667L19.333 4h-6.667l-1.333 1.333H6.666V8h18.667V5.333z"
                       />
                     </symbol>
-                    <!-- Camera icon -->
-                    <symbol id="camera" viewBox="0 0 32 32">
-                      <path
-                        d="M20.267 16a4.267 4.267 0 11-8.534 0 4.267 4.267 0 018.534 0z"
-                      />
-                      <path
-                        d="M12 2.667L9.56 5.334H5.333a2.675 2.675 0 00-2.667 2.667v16c0 1.467 1.2 2.667 2.667 2.667h21.333c1.467 0 2.667-1.2 2.667-2.667v-16c0-1.467-1.2-2.667-2.667-2.667h-4.227l-2.44-2.667h-8zm4 20c-3.68 0-6.667-2.987-6.667-6.667S12.32 9.333 16 9.333 22.667 12.32 22.667 16 19.68 22.667 16 22.667z"
-                      />
-                    </symbol>
-                    <!-- Portfolio icon -->
-                    <symbol id="work" viewBox="0 0 32 32">
-                      <path
-                        d="M26.667 8h-5.333V5.333a2.658 2.658 0 00-2.667-2.667h-5.333a2.658 2.658 0 00-2.667 2.667V8H5.334a2.646 2.646 0 00-2.653 2.667l-.013 14.667a2.658 2.658 0 002.667 2.667h21.333a2.658 2.658 0 002.667-2.667V10.667A2.658 2.658 0 0026.668 8zm-8 0h-5.333V5.333h5.333V8z"
-                      />
-                    </symbol>
                   </defs>
                 </svg>
 
-                <ul class="icon-list">
+                <ul class="sprite-icon-list">
                   <li>
-                    <svg class="icon" width="80" height="80">
+                    <svg class="sprite-icon" width="80" height="80">
                       <use href="#delete"></use>
-                    </svg>
-                  </li>
-                  <li>
-                    <svg class="icon" width="80" height="80">
-                      <use href="#camera"></use>
-                    </svg>
-                  </li>
-                  <li>
-                    <svg class="icon" width="80" height="80">
-                      <use href="#work"></use>
                     </svg>
                   </li>
                 </ul>
@@ -1159,13 +1135,56 @@
                 <!-- HTML -->
                 <div class="html">
                   <h5>HTML</h5>
-                  <p></p>
+                  <p>
+                    (div class="body") <br />
+                    (svg <br />
+                    aria-hidden="true" <br />
+                    style="position: absolute; width: 0; height: 0" <br />
+                    xmlns="http://www.w3.org/2000/svg" <br />
+                    overflow="hidden" <br />
+                    ) <br />
+                    (defs) <br />
+                    (symbol id="delete" viewBox="0 0 32 32") <br />
+                    (path <br />
+                    d="M8 25.333C8 26.8 9.2 28 10.667 28h10. <br />667c1.467 0
+                    2.667-1.2 2.667-2.
+                    <br />667v-16h-16v16zm17.333-20h-4.667L19. <br />333
+                    4h-6.667l-1.333 1.333H6.666V8h18. <br />667V5.333z" /)
+                    <br />
+                    (/symbol) <br />
+                    (/defs) <br />
+                    (/svg) <br />
+                    (/div) <br />
+                    <br />
+                    (div class="container") <br />
+                    (svg class="sprite-icon" width="150" height="150")
+                    <br />
+                    (use href="#delete")(/use) <br />
+                    (/svg) <br />
+                    (/div)
+                  </p>
                 </div>
 
                 <!-- CSS -->
                 <div class="css">
                   <h5>CSS</h5>
-                  <p></p>
+                  <p>
+                    .sprite-icon-list { <br />
+                    padding: 0; <br />
+                    margin: 0; <br />
+                    list-style: none; <br />
+                    } <br />
+                    <br />
+                    .sprite-icon { <br />
+                    border: 2px dashed #2a2a2a; <br />
+                    border-radius: 8px; <br />
+                    fill: #2a2a2a; <br />
+                    } <br />
+                    <br />
+                    .sprite-icon:hover { <br />
+                    fill: #f42703; <br />
+                    }
+                  </p>
                 </div>
               </div>
             </div>
@@ -1203,31 +1222,645 @@
           <!-- Proprietatea fill -->
           <li>
             <h3>Proprietatea fill</h3>
-            <p></p>
+            <p>
+              Aceasta controlează culoarea de umplere. Culoarea poate fi setată
+              în orice format convenabil. Dacă nu este specificată nicio culoare
+              de umplere, figura va fi umplută cu culoarea curentă a textului,
+              negru în mod implicit (#000000). Puteți elimina complet umplerea
+              prin setarea valoarii none, ca urmare veți obține o figură complet
+              transparentă.
+            </p>
+            <p>
+              /* Setează culoarea de umplere în stare normală */ <br />
+              .icon { <br />
+              fill: #2a2a2a; <br />
+              } <br />
+              <br />
+              /* Schimbă culoarea de umplere la hover */ <br />
+              .icon:hover { <br />
+              fill: #ff6347; <br />
+              }
+            </p>
+
+            <!-- Exemplu -->
+            <div>
+              <h4>Exemplu :</h4>
+              <div class="body">
+                <svg
+                  aria-hidden="true"
+                  style="position: absolute; width: 0; height: 0"
+                  xmlns="http://www.w3.org/2000/svg"
+                  overflow="hidden"
+                >
+                  <defs>
+                    <symbol id="delete" viewBox="0 0 32 32">
+                      <path
+                        d="M8 25.333C8 26.8 9.2 28 10.667 28h10.667c1.467 0 2.667-1.2 2.667-2.667v-16h-16v16zm17.333-20h-4.667L19.333 4h-6.667l-1.333 1.333H6.666V8h18.667V5.333z"
+                      />
+                    </symbol>
+                    <symbol id="camera" viewBox="0 0 32 32">
+                      <path
+                        d="M20.267 16a4.267 4.267 0 11-8.534 0 4.267 4.267 0 018.534 0z"
+                      />
+                      <path
+                        d="M12 2.667L9.56 5.334H5.333a2.675 2.675 0 00-2.667 2.667v16c0 1.467 1.2 2.667 2.667 2.667h21.333c1.467 0 2.667-1.2 2.667-2.667v-16c0-1.467-1.2-2.667-2.667-2.667h-4.227l-2.44-2.667h-8zm4 20c-3.68 0-6.667-2.987-6.667-6.667S12.32 9.333 16 9.333 22.667 12.32 22.667 16 19.68 22.667 16 22.667z"
+                      />
+                    </symbol>
+                    <symbol id="work" viewBox="0 0 32 32">
+                      <path
+                        d="M26.667 8h-5.333V5.333a2.658 2.658 0 00-2.667-2.667h-5.333a2.658 2.658 0 00-2.667 2.667V8H5.334a2.646 2.646 0 00-2.653 2.667l-.013 14.667a2.658 2.658 0 002.667 2.667h21.333a2.658 2.658 0 002.667-2.667V10.667A2.658 2.658 0 0026.668 8zm-8 0h-5.333V5.333h5.333V8z"
+                      />
+                    </symbol>
+                  </defs>
+                </svg>
+
+                <div class="container">
+                  <svg class="fill-icon" width="150" height="150">
+                    <use href="#delete"></use>
+                  </svg>
+
+                  <svg class="fill-icon" width="150" height="150">
+                    <use href="#camera"></use>
+                  </svg>
+
+                  <svg class="fill-icon" width="150" height="150">
+                    <use href="#work"></use>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="codes">
+                <!-- HTML -->
+                <div class="html">
+                  <h5>HTML</h5>
+                  <p>
+                    (div class="body") (svg <br />
+                    aria-hidden="true" <br />
+                    style="position: absolute; width: 0; height: 0" <br />
+                    xmlns="http://www.w3.org/2000/svg" <br />
+                    overflow="hidden" <br />
+                    ) <br />
+                    (/defs) <br />
+                    (symbol id="delete" viewBox="0 0 32 32") <br />
+                    (path <br />
+                    d="M8 25.333C8 26.8 9.2 28 10.667 28h10.667c1.467 0
+                    <br />2.667-1.2 2.667-2.667v-16h-16v16zm17.
+                    <br />333-20h-4.667L19.333 4h-6.667l-1.333 1.333H6.
+                    <br />666V8h18.667V5.333z" <br />
+                    /) <br />
+                    (/symbol) <br />
+                    (symbol id="camera" viewBox="0 0 32 32") <br />
+                    (path <br />
+                    d="M20.267 16a4.267 4.267 0 11-8.534 0 4.267 4.267 <br />0
+                    018.534 0z" <br />
+                    /) <br />
+                    (path <br />
+                    d="M12 2.667L9.56 5.334H5.333a2.675 2.675 0 00-2. <br />667
+                    2.667v16c0 1.467 1.2 2.667 2.667 2.667h21. <br />333c1.467 0
+                    2.667-1.2 2.667-2.667v-16c0-1.467-1.
+                    <br />2-2.667-2.667-2.667h-4.227l-2.44-2. <br />667h-8zm4
+                    20c-3.68 0-6.667-2.987-6.667-6.667S12. <br />32 9.333 16
+                    9.333 22.667 12.32 22.667 <br />16 19.68 22.667 16 22.667z"
+                    <br />
+                    /) <br />
+                    (/symbol) <br />
+                    (symbol id="work" viewBox="0 0 32 32") <br />
+                    (path <br />
+                    d="M26.667 8h-5.333V5.333a2.658 2.658 0 00-2.667-2.
+                    <br />667h-5.333a2.658 2.658 0 00-2.667 2.667V8H5.
+                    <br />334a2.646 2.646 0 00-2.653 2.667l-.013 14.667a2
+                    <br />658 2.658 0 002.667 2.667h21.333a2.658 2.658 0
+                    <br />002.667-2.667V10.667A2.658 2.658 0 0026.668
+                    <br />8zm-8 0h-5.333V5.333h5.333V8z" <br />
+                    /) <br />
+                    (/symbol) <br />
+                    (/defs) <br />
+                    (/svg) <br />
+                    <br />
+                    (div class="container") <br />
+                    (svg class="fill-icon" width="150" height="150") <br />
+                    (use href="#delete")(/use) <br />
+                    (/svg) <br />
+                    <br />
+                    (svg class="fill-icon" width="150" height="150") <br />
+                    (use href="#camera")(/use) <br />
+                    (/svg) <br />
+                    <br />
+                    (svg class="fill-icon" width="150" height="150") <br />
+                    (use href="#work")(/use) <br />
+                    (/svg) <br />
+                    (/div) <br />
+                    (/div)
+                  </p>
+                </div>
+
+                <!-- CSS -->
+                <div class="css">
+                  <h5>CSS</h5>
+                  <p>
+                    body { <br />
+                    margin: 0; <br />
+                    min-height: 100vh; <br />
+                    display: flex; <br />
+                    flex-direction: column; <br />
+                    align-items: center; <br />
+                    justify-content: center; <br />
+                    background-color: #f9f9fd; <br />
+                    } <br />
+                    <br />
+                    .container { <br />
+                    display: flex; <br />
+                    justify-content: center; <br />
+                    padding: 16px; <br />
+                    } <br />
+                    <br />
+                    .fill-icon { <br />
+                    margin-left: 12px; <br />
+                    margin-right: 12px; <br />
+                    border: 2px dashed #2a2a2a; <br />
+                    border-radius: 8px; <br />
+                    fill: #2a2a2a; <br />
+                    } <br />
+                    <br />
+                    .fill-icon:hover { <br />
+                    fill: #98f403; <br />
+                    }
+                  </p>
+                </div>
+              </div>
+            </div>
           </li>
 
           <!-- Proprietatea fill-opacity -->
           <li>
             <h3>Proprietatea fill-opacity</h3>
-            <p></p>
+            <p>
+              Aceasta controlează numai transparența culorii de umplere, nu
+              întreaga culoare sau element, adică se deosebește de opacity sau
+              stroke-opacity. De exemplu, dacă o iconiță are un contur roșu,
+              atunci această proprietate nu îi va afecta culoarea. Pentru a seta
+              o valoare, utilizați un număr de la 0 la 1.
+            </p>
+            <p>
+              .fill-icon { <br />
+              fill: #2a2a2a; <br />
+              fill-opacity: 0.7; <br />
+              } <br />
+              <br />
+              /* fill-opacity de asemenea va fi aplicată la hover pentru
+              <br />culoarea nouă*/ <br />
+              .fill-icon:hover { <br />
+              fill: #03a9f4; <br />
+              }
+            </p>
+
+            <!-- Exemplu -->
+            <div>
+              <h4>Exemplu :</h4>
+              <div class="body">
+                <svg
+                  aria-hidden="true"
+                  style="position: absolute; width: 0; height: 0"
+                  xmlns="http://www.w3.org/2000/svg"
+                  overflow="hidden"
+                >
+                  <defs>
+                    <symbol id="delete" viewBox="0 0 32 32">
+                      <path
+                        d="M8 25.333C8 26.8 9.2 28 10.667 28h10.667c1.467 0 2.667-1.2 2.667-2.667v-16h-16v16zm17.333-20h-4.667L19.333 4h-6.667l-1.333 1.333H6.666V8h18.667V5.333z"
+                      />
+                    </symbol>
+                  </defs>
+                </svg>
+                <div class="container">
+                  <svg class="fill-opacity-icon" width="150" height="150">
+                    <use href="#delete"></use>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="codes">
+                <!-- HTML -->
+                <div class="html">
+                  <h5>HTML</h5>
+                  <p>
+                    (div class="body") <br />
+                    (svg <br />
+                    aria-hidden="true" <br />
+                    style="position: absolute; width: 0; height: 0" <br />
+                    xmlns="http://www.w3.org/2000/svg" <br />
+                    overflow="hidden" <br />
+                    ) <br />
+                    (defs) <br />
+                    (symbol id="delete" viewBox="0 0 32 32") <br />
+                    (path <br />
+                    d="M8 25.333C8 26.8 9.2 28 10.667 28h10. <br />667c1.467 0
+                    2.667-1.2 2.667-2.
+                    <br />667v-16h-16v16zm17.333-20h-4.667L19. <br />333
+                    4h-6.667l-1.333 1.333H6.666V8h18. <br />667V5.333z" /)
+                    <br />
+                    (/symbol) <br />
+                    (/defs) <br />
+                    (/svg) <br />
+                    (/div) <br />
+                    <br />
+                    (div class="container") <br />
+                    (svg class="fill-opacity-icon" width="150" height="150")
+                    <br />
+                    (use href="#delete")(/use) <br />
+                    (/svg) <br />
+                    (/div)
+                  </p>
+                </div>
+
+                <!-- CSS -->
+                <div class="css">
+                  <h5>CSS</h5>
+                  <p>
+                    body { <br />
+                    margin: 0; <br />
+                    min-height: 100vh; <br />
+                    display: flex; <br />
+                    flex-direction: column; <br />
+                    align-items: center; <br />
+                    justify-content: center; <br />
+                    background-color: #f9f9fd; <br />
+                    } <br />
+                    <br />
+                    .container { <br />
+                    display: flex; <br />
+                    justify-content: center; <br />
+                    padding: 16px; <br />
+                    } <br />
+                    <br />
+                    .fill-opacity-icon { <br />
+                    margin-left: 12px; <br />
+                    margin-right: 12px; <br />
+                    border: 2px dashed #2a2a2a; <br />
+                    border-radius: 8px; <br />
+                    fill: #2a2a2a; <br />
+                    fill-opacity: 0.7; <br />
+                    stroke: #f44336; <br />
+                    stroke-width: 1px; <br />
+                    } <br />
+                    <br />
+                    .fill-opacity-icon:hover { <br />
+                    fill: #03a9f4; <br />
+                    }
+                  </p>
+                </div>
+              </div>
+            </div>
           </li>
 
           <!-- Proprietatea stroke -->
           <li>
             <h3>Proprietatea stroke</h3>
-            <p></p>
+            <p>
+              Setează culoarea conturului. Nu are valoare implicită.
+              Caracteristicile conturului, cum ar fi culoarea și greutatea, sunt
+              stabilite de proprietăți separate.
+            </p>
+            <p>
+              .icon { <br />
+              stroke: #f44336; <br />
+              }
+            </p>
+
+            <!-- Exemplu -->
+            <div>
+              <h4>Exemplu :</h4>
+              <div class="body">
+                <svg
+                  aria-hidden="true"
+                  style="position: absolute; width: 0; height: 0"
+                  xmlns="http://www.w3.org/2000/svg"
+                  overflow="hidden"
+                >
+                  <defs>
+                    <symbol id="delete" viewBox="0 0 32 32">
+                      <path
+                        d="M8 25.333C8 26.8 9.2 28 10.667 28h10.667c1.467 0 2.667-1.2 2.667-2.667v-16h-16v16zm17.333-20h-4.667L19.333 4h-6.667l-1.333 1.333H6.666V8h18.667V5.333z"
+                      />
+                    </symbol>
+                  </defs>
+                </svg>
+                <div class="container">
+                  <svg class="stroke-icon" width="150" height="150">
+                    <use href="#delete"></use>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="codes">
+                <!-- HTML -->
+                <div class="html">
+                  <h5>HTML</h5>
+                  <p>
+                    (div class="body") <br />
+                    (svg <br />
+                    aria-hidden="true" <br />
+                    style="position: absolute; width: 0; height: 0" <br />
+                    xmlns="http://www.w3.org/2000/svg" <br />
+                    overflow="hidden" <br />
+                    ) <br />
+                    (defs) <br />
+                    (symbol id="delete" viewBox="0 0 32 32") <br />
+                    (path <br />
+                    d="M8 25.333C8 26.8 9.2 28 10.667 28h10. <br />667c1.467 0
+                    2.667-1.2 2.667-2.
+                    <br />667v-16h-16v16zm17.333-20h-4.667L19. <br />333
+                    4h-6.667l-1.333 1.333H6.666V8h18. <br />667V5.333z" /)
+                    <br />
+                    (/symbol) <br />
+                    (/defs) <br />
+                    (/svg) <br />
+                    (/div) <br />
+                    <br />
+                    (div class="container") <br />
+                    (svg class="stroke-icon" width="150" height="150")
+                    <br />
+                    (use href="#delete")(/use) <br />
+                    (/svg) <br />
+                    (/div)
+                  </p>
+                </div>
+
+                <!-- CSS -->
+                <div class="css">
+                  <h5>CSS</h5>
+                  <p>
+                    body { <br />
+                    margin: 0; <br />
+                    min-height: 100vh; <br />
+                    display: flex; <br />
+                    flex-direction: column; <br />
+                    align-items: center; <br />
+                    justify-content: center; <br />
+                    background-color: #f9f9fd; <br />
+                    } <br />
+                    <br />
+                    .container { <br />
+                    display: flex; <br />
+                    justify-content: center; <br />
+                    padding: 16px; <br />
+                    } <br />
+                    <br />
+                    .stroke-icon { <br />
+                    margin-left: 12px; <br />
+                    margin-right: 12px; <br />
+                    border: 2px dashed #2a2a2a; <br />
+                    border-radius: 8px; <br />
+                    fill: #2a2a2a; <br />
+                    fill-opacity: 0.7; <br />
+                    stroke: #f44336; <br />
+                    stroke-width: 1px; <br />
+                    } <br />
+                    <br />
+                    .stroke-icon:hover { <br />
+                    fill: #03a9f4; <br />
+                    }
+                  </p>
+                </div>
+              </div>
+            </div>
           </li>
 
           <!-- Proprietatea stroke-width -->
           <li>
             <h3>Proprietatea stroke-width</h3>
-            <p></p>
+            <p>
+              Aceasta controlează grosimea conturului. Valoarea implicită este
+              de 1px, deci pentru un contur de un pixel, trebuie doar să
+              specificați culoarea în proprietatea stroke. Dacă greutatea
+              conturului este setată, dar nu este setată nicio culoare, aceasta
+              nu va fi afișată.
+            </p>
+            <p>
+              .icon { <br />
+              stroke: #f44336; <br />
+              stroke-width: 3px; <br />
+              }
+            </p>
+            <!-- Exemplu -->
+            <div>
+              <h4>Exemplu :</h4>
+              <div class="body">
+                <svg
+                  aria-hidden="true"
+                  style="position: absolute; width: 0; height: 0"
+                  xmlns="http://www.w3.org/2000/svg"
+                  overflow="hidden"
+                >
+                  <defs>
+                    <symbol id="delete" viewBox="0 0 32 32">
+                      <path
+                        d="M8 25.333C8 26.8 9.2 28 10.667 28h10.667c1.467 0 2.667-1.2 2.667-2.667v-16h-16v16zm17.333-20h-4.667L19.333 4h-6.667l-1.333 1.333H6.666V8h18.667V5.333z"
+                      />
+                    </symbol>
+                  </defs>
+                </svg>
+                <div class="container">
+                  <svg class="width-stroke-icon" width="150" height="150">
+                    <use href="#delete"></use>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="codes">
+                <!-- HTML -->
+                <div class="html">
+                  <h5>HTML</h5>
+                  <p>
+                    (div class="body") <br />
+                    (svg <br />
+                    aria-hidden="true" <br />
+                    style="position: absolute; width: 0; height: 0" <br />
+                    xmlns="http://www.w3.org/2000/svg" <br />
+                    overflow="hidden" <br />
+                    ) <br />
+                    (defs) <br />
+                    (symbol id="delete" viewBox="0 0 32 32") <br />
+                    (path <br />
+                    d="M8 25.333C8 26.8 9.2 28 10.667 28h10. <br />667c1.467 0
+                    2.667-1.2 2.667-2.
+                    <br />667v-16h-16v16zm17.333-20h-4.667L19. <br />333
+                    4h-6.667l-1.333 1.333H6.666V8h18. <br />667V5.333z" /)
+                    <br />
+                    (/symbol) <br />
+                    (/defs) <br />
+                    (/svg) <br />
+                    (/div) <br />
+                    <br />
+                    (div class="container") <br />
+                    (svg class="width-stroke-icon" width="150" height="150")
+                    <br />
+                    (use href="#delete")(/use) <br />
+                    (/svg) <br />
+                    (/div)
+                  </p>
+                </div>
+
+                <!-- CSS -->
+                <div class="css">
+                  <h5>CSS</h5>
+                  <p>
+                    .body { <br />
+                    margin: 0; <br />
+                    min-height: 100vh; <br />
+                    display: flex; <br />
+                    flex-direction: column; <br />
+                    align-items: center; <br />
+                    justify-content: center; <br />
+                    background-color: #f9f9fd; <br />
+                    } <br />
+                    <br />
+                    .container { <br />
+                    display: flex; <br />
+                    justify-content: center; <br />
+                    padding: 16px; <br />
+                    } <br />
+                    <br />
+                    .width-stroke--icon { <br />
+                    margin-left: 12px; <br />
+                    margin-right: 12px; <br />
+                    border: 2px dashed #2a2a2a; <br />
+                    border-radius: 8px; <br />
+                    fill: #2a2a2a; <br />
+                    fill-opacity: 0.7; <br />
+                    stroke: #f44336; <br />
+                    stroke-width: 3px; <br />
+                    } <br />
+                    <br />
+                    .width-stroke--icon:hover { <br />
+                    fill: #03a9f4; <br />
+                    }
+                  </p>
+                </div>
+              </div>
+            </div>
           </li>
 
           <!-- Proprietatea stroke-opacity -->
           <li>
             <h3>Proprietatea stroke-opacity</h3>
-            <p></p>
+            <p>
+              Controlează numai transparența culorii conturului, nu întreaga
+              culoare sau întregul element. Pentru a seta o valoare, utilizați
+              un număr de la 0 la 1.
+            </p>
+            <p>
+              .icon { <br />
+              stroke: #f44336; <br />
+              stroke-width: 3px; <br />
+              stroke-opacity: 0.7; <br />
+              }
+            </p>
+
+            <!-- Exemplu -->
+            <div>
+              <h4>Exemplu :</h4>
+              <div class="body">
+                <svg
+                  aria-hidden="true"
+                  style="position: absolute; width: 0; height: 0"
+                  xmlns="http://www.w3.org/2000/svg"
+                  overflow="hidden"
+                >
+                  <defs>
+                    <symbol id="delete" viewBox="0 0 32 32">
+                      <path
+                        d="M8 25.333C8 26.8 9.2 28 10.667 28h10.667c1.467 0 2.667-1.2 2.667-2.667v-16h-16v16zm17.333-20h-4.667L19.333 4h-6.667l-1.333 1.333H6.666V8h18.667V5.333z"
+                      />
+                    </symbol>
+                  </defs>
+                </svg>
+                <div class="container">
+                  <svg
+                    class="opacity-width-stroke-icon"
+                    width="150"
+                    height="150"
+                  >
+                    <use href="#delete"></use>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="codes">
+                <!-- HTML -->
+                <div class="html">
+                  <h5>HTML</h5>
+                  <p>
+                    (div class="body") <br />
+                    (svg <br />
+                    aria-hidden="true" <br />
+                    style="position: absolute; width: 0; height: 0" <br />
+                    xmlns="http://www.w3.org/2000/svg" <br />
+                    overflow="hidden" <br />
+                    ) <br />
+                    (defs) <br />
+                    (symbol id="delete" viewBox="0 0 32 32") <br />
+                    (path <br />
+                    d="M8 25.333C8 26.8 9.2 28 10.667 28h10. <br />667c1.467 0
+                    2.667-1.2 2.667-2.
+                    <br />667v-16h-16v16zm17.333-20h-4.667L19. <br />333
+                    4h-6.667l-1.333 1.333H6.666V8h18. <br />667V5.333z" /)
+                    <br />
+                    (/symbol) <br />
+                    (/defs) <br />
+                    (/svg) <br />
+                    (/div) <br />
+                    <br />
+                    (div class="container") <br />
+                    (svg class="opacity-width-stroke-icon" width="150"
+                    height="150")
+                    <br />
+                    (use href="#delete")(/use) <br />
+                    (/svg) <br />
+                    (/div)
+                  </p>
+                </div>
+
+                <!-- CSS -->
+                <div class="css">
+                  <h5>CSS</h5>
+                  <p>
+                    .body { <br />
+                    margin: 0; <br />
+                    min-height: 100vh; <br />
+                    display: flex; <br />
+                    flex-direction: column; <br />
+                    align-items: center; <br />
+                    justify-content: center; <br />
+                    background-color: #f9f9fd; <br />
+                    } <br />
+                    <br />
+                    .container { <br />
+                    display: flex; <br />
+                    justify-content: center; <br />
+                    padding: 16px; <br />
+                    } <br />
+                    <br />
+                    .width-stroke--icon { <br />
+                    margin-left: 12px; <br />
+                    margin-right: 12px; <br />
+                    border: 2px dashed #2a2a2a; <br />
+                    border-radius: 8px; <br />
+                    fill: #2a2a2a; <br />
+                    fill-opacity: 0.7; <br />
+                    stroke: #f44336; <br />
+                    stroke-width: 3px; <br />
+                    stroke-opacity: 0.7; <br />
+
+                    } <br />
+                    <br />
+                    .width-stroke--icon:hover { <br />
+                    fill: #03a9f4; <br />
+                    }
+                  </p>
+                </div>
+              </div>
+            </div>
           </li>
         </ul>
       </section>
